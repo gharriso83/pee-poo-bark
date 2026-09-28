@@ -168,5 +168,4 @@ viewport-heights, outside the 13.6 to 13.8 band.
 
 ## Things to replace when they exist
 
-- The contact email in `index.html` (search for `CHANGE-ME`).
 - The bandana illustration, with a real photo of the dogs wearing them.

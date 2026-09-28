@@ -16,11 +16,12 @@ Live, laugh, love, as told by a dog. The website for Pee Poo Bark dog bandanas.
 
 Double-click `index.html` and it opens in your browser. That's it, no install.
 
-## Things to change first
+## Things to change
 
-1. **Your email address.** In `index.html`, search for `CHANGE-ME@example.com`
-   and replace it with the address you want people to write to.
-2. **The bandana drawing.** Once you have photos of your dogs wearing the
+The "Save me a bandana" button emails gmharrison@hotmail.com. To change it,
+search `index.html` for `mailto:`.
+
+1. **The bandana drawing.** Once you have photos of your dogs wearing the
    bandanas, those should replace the drawing in the middle section of `index.html`.
 
 ## Putting it online for free (GitHub Pages)
