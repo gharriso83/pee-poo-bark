@@ -17,7 +17,7 @@ No pinned scrolling, no moving words, no crossed-out sign, no glossary. The
 scroll-craft engine is only used for the gentle fade-in as each section
 arrives, and that is switched off for visitors who ask for reduced motion.
 
-Colours (softened at the owner's request, "cute and calming"): white top section and white bandana, warm off-white `#FBF8F3`, blush `#F6DEDA`, soft charcoal `#34332F`, deep sage `#4F6B4C` for the button.
+Colours (softened at the owner's request, "cute and calming"): white top and bottom sections, white bandana, blush `#F6DEDA` middle section, soft charcoal `#34332F`, deep sage `#4F6B4C` for the button.
 Type: the owner's lettering (`assets/logo.webp`) plus Archivo for everything
 else.
 
