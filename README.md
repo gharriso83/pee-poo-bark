@@ -8,9 +8,8 @@ Live, laugh, love, as told by a dog. The website for Pee Poo Bark dog bandanas.
 |---|---|
 | `index.html` | The page itself: all the words you see on the site |
 | `site.css` | Colours, sizes and layout |
-| `site.js` | The bespoke movement (the words drifting apart, the sign being crossed out) |
 | `assets/` | Your lettering (cut out of your artwork) and the font |
-| `scrollcraft/` | The scroll engine from [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) (MIT licence). Don't edit it |
+| `scrollcraft/` | The scroll engine from [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) (MIT licence), used for the gentle fade-ins. Don't edit it |
 | `design/` | The design brief and reasoning behind the page |
 
 ## Look at it on your own computer
@@ -22,7 +21,7 @@ Double-click `index.html` and it opens in your browser. That's it, no install.
 1. **Your email address.** In `index.html`, search for `CHANGE-ME@example.com`
    and replace it with the address you want people to write to.
 2. **The bandana drawing.** Once you have photos of your dogs wearing the
-   bandanas, those should replace the drawing in section 5 of `index.html`.
+   bandanas, those should replace the drawing in the middle section of `index.html`.
 
 ## Putting it online for free (GitHub Pages)
 

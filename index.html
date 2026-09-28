@@ -1,9 +1,9 @@
 <!doctype html>
 <!--
   Pee Poo Bark
-  Built with the scroll-craft engine (scrollcraft/, MIT, by Nate Herk).
-  The page is plain HTML. The look lives in site.css, the bespoke movement in
-  site.js. The design reasoning is in design/BRIEF.md.
+  Built with the scroll-craft engine (scrollcraft/, MIT, by Nate Herk), used
+  here only for the gentle fade-in as each section scrolls into view.
+  The look lives in site.css.
 -->
 <html lang="en-GB">
 <head>
@@ -17,138 +17,47 @@
 <meta property="og:image" content="assets/logo.webp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23D8F04A'/><g fill='%231A1916'><ellipse cx='16' cy='21' rx='6' ry='5'/><ellipse cx='8.5' cy='13.5' rx='2.4' ry='3'/><ellipse cx='13' cy='9' rx='2.4' ry='3'/><ellipse cx='19' cy='9' rx='2.4' ry='3'/><ellipse cx='23.5' cy='13.5' rx='2.4' ry='3'/></g></svg>">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/word-pee.webp">
-<link rel="preload" as="image" href="assets/word-poo.webp">
-<link rel="preload" as="image" href="assets/word-bark.webp">
+<link rel="preload" as="image" href="assets/logo.webp">
 <link rel="stylesheet" href="scrollcraft/scrollcraft.css">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<div class="sc-grain" aria-hidden="true"></div>
-
 <main>
 
-  <!-- 1 · THE NAME. The three words are three separate planes. -->
-  <section class="hero g-ball" data-sc-act="pin" data-sc-span="1.7">
-    <div data-sc-stage class="hero__stage">
-      <h1 class="vh">Pee Poo Bark</h1>
-      <div class="hero__lockup" aria-hidden="true">
-        <span class="brush brush--pee  hero__w hero__w--pee"  data-depth="-1"></span>
-        <span class="brush brush--poo  hero__w hero__w--poo"  data-depth="0.35"></span>
-        <span class="brush brush--bark hero__w hero__w--bark" data-depth="1"></span>
-      </div>
-      <p class="hero__aside" data-sc-cue="0 0.55 0">Live, laugh, love.<br>As told by a dog.</p>
-      <p class="hero__tag" data-sc-cue="0 0.55 0">Bandanas for dogs, and the humans on the other end of the lead.</p>
-    </div>
-  </section>
+  <!-- 1 · THE NAME -->
+  <header class="hero g-ball">
+    <h1 class="hero__mark"><span class="brush brush--logo" role="img" aria-label="Pee Poo Bark"></span></h1>
+    <p class="hero__tag">Bandanas for dogs, and the humans on the other end of the lead.</p>
+  </header>
 
-  <!-- 2 · THE HALLWAY. Authored quiet before the peak. -->
-  <section class="hall g-hall" data-sc-act="flow">
-    <p class="hall__line" data-sc-in>Every hallway has that sign.</p>
-  </section>
-
-  <!-- 3 · THE REWRITE. The peak, and the signature move (see site.js). -->
-  <section class="rewrite g-hall" data-sc-act="pin" data-sc-span="3.4" id="rewrite">
-    <div data-sc-stage class="rewrite__stage">
-      <div class="rewrite__flip" aria-hidden="true"></div>
-      <h2 class="vh">Live, laugh, love. Rewritten by a dog: pee, poo, bark.</h2>
-      <ol class="sign" aria-hidden="true">
-        <li class="sign__row">
-          <span class="sign__word">Live</span>
-          <svg class="sign__strike" viewBox="0 0 100 20" preserveAspectRatio="none"><path pathLength="1" d="M1 13 C 14 9, 26 15, 41 11 S 67 8, 80 12 S 94 9, 99 10"/></svg>
-          <span class="brush brush--pee sign__dog"></span>
-        </li>
-        <li class="sign__row">
-          <span class="sign__word">Laugh</span>
-          <svg class="sign__strike" viewBox="0 0 100 20" preserveAspectRatio="none"><path pathLength="1" d="M1 9 C 12 13, 30 7, 46 11 S 70 14, 84 9 S 95 11, 99 12"/></svg>
-          <span class="brush brush--poo sign__dog"></span>
-        </li>
-        <li class="sign__row">
-          <span class="sign__word">Love</span>
-          <svg class="sign__strike" viewBox="0 0 100 20" preserveAspectRatio="none"><path pathLength="1" d="M1 11 C 16 7, 28 14, 44 10 S 72 13, 86 8 S 96 12, 99 11"/></svg>
-          <span class="brush brush--bark sign__dog"></span>
-        </li>
-      </ol>
-      <p class="rewrite__after" data-sc-cue="0.84 1 0.06 0.02">Same philosophy. Translated by the dog.</p>
-    </div>
-  </section>
-
-  <!-- 4 · THE GLOSSARY. -->
-  <section class="gloss g-dark" data-sc-act="flow">
-    <div class="sc-wrap">
-      <h2 class="gloss__title" data-sc-cue="0.06" data-sc-kinetic="words">A glossary, for the humans.</h2>
-      <dl class="gloss__list">
-        <div class="entry entry--a" data-sc-in>
-          <dt><span class="brush brush--pee entry__word" role="img" aria-label="Pee"></span></dt>
-          <dd>
-            <p class="entry__meta">/piː/ · verb</p>
-            <p class="entry__def">Reading every message the neighbourhood left overnight, then replying to all of them. Lamp post by lamp post.</p>
-          </dd>
-        </div>
-        <div class="entry entry--b" data-sc-in>
-          <dt><span class="brush brush--poo entry__word" role="img" aria-label="Poo"></span></dt>
-          <dd>
-            <p class="entry__meta">/puː/ · noun</p>
-            <p class="entry__def">The reason every coat you own has a little bag in the pocket. Including the good coat.</p>
-          </dd>
-        </div>
-        <div class="entry entry--c" data-sc-in>
-          <dt><span class="brush brush--bark entry__word" role="img" aria-label="Bark"></span></dt>
-          <dd>
-            <p class="entry__meta">/bɑːk/ · verb</p>
-            <p class="entry__def">Having opinions, out loud, mostly about the postman. Also the doorbell on the telly.</p>
-          </dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- 5 · THE BANDANA. Swap the drawing for a real photo of the dogs when you have one. -->
-  <section class="bandana g-bone" data-sc-act="flow">
-    <div class="sc-wrap bandana__grid">
-      <div class="bandana__copy" data-sc-in>
-        <h2 class="bandana__title">Three words. <span>One bandana.</span></h2>
-        <p class="bandana__lede">Your dog has lived by these three words for years. Now the whole street can read them.</p>
-        <p class="bandana__note">The first ones are being road-tested on our daily walk right now. They are not for sale yet, because there is not a shop yet.</p>
-        <p><a class="link" href="#hello">Save me a bandana</a></p>
-      </div>
-      <figure class="bandana__art" data-sc-reveal="down" data-sc-reveal-at="0.08 0.42">
+  <!-- 2 · THE BANDANA AND THE PERSON. Swap the drawing for a real photo of the dogs when you have one. -->
+  <section class="about g-bone">
+    <div class="about__grid">
+      <figure class="about__art" data-sc-in>
         <svg viewBox="0 0 400 360" role="img" aria-labelledby="bandana-t">
           <title id="bandana-t">Drawing of a yellow triangle dog bandana printed with Pee Poo Bark in black brush lettering</title>
-          <defs>
-            <clipPath id="cloth"><path d="M34 52 Q200 30 366 52 L214 332 Q200 350 186 332 Z"/></clipPath>
-          </defs>
-          <!-- tie ends -->
           <path d="M40 56 C 20 40, 6 50, 2 66 C 16 64, 26 70, 44 70 Z" fill="#C3DB35"/>
           <path d="M360 56 C 380 40, 394 50, 398 66 C 384 64, 374 70, 356 70 Z" fill="#C3DB35"/>
-          <!-- cloth -->
           <path d="M34 52 Q200 30 366 52 L214 332 Q200 350 186 332 Z" fill="#D8F04A"/>
-          <g clip-path="url(#cloth)">
-            <path d="M34 52 Q200 30 366 52 L366 74 Q200 54 34 74 Z" fill="#C3DB35"/>
-            <path d="M200 40 L200 360" stroke="#C3DB35" stroke-width="10" opacity="0.35"/>
-          </g>
           <path d="M50 64 Q200 44 350 64 L207 318 Q200 328 193 318 Z" fill="none" stroke="#1A1916" stroke-width="1.6" stroke-dasharray="5 6" opacity="0.5"/>
           <image href="assets/logo.webp" x="146" y="80" width="108" height="169"/>
         </svg>
-        <figcaption>Illustration. Real photos of the dogs wearing them are coming.</figcaption>
       </figure>
+      <div class="about__copy" data-sc-in>
+        <h2>Live, laugh, love.<br>As told by a dog.</h2>
+        <p>Bandanas that say what your dog has been thinking all along. The first ones are being road-tested on our daily walk right now.</p>
+        <p>I walk my two dogs every single day. If you spot three words going past on a bandana, that was us. Say hello.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 6 · THE PERSON. -->
-  <section class="person g-ball" data-sc-act="flow">
-    <p class="person__label" data-sc-in>From the other end of the lead</p>
-    <h2 class="person__note" data-sc-cue="0.14 1 0.3 0" data-sc-kinetic="lines">Hello. I walk my two dogs every single day, and I decided the hallway sign had the wrong words. So now they wear the right ones. If you spot three words going past on a bandana, that was us. Say hello.</h2>
-  </section>
-
-  <!-- 7 · HELLO. The quietest screen on the page. It holds. -->
-  <section class="hello g-dark" data-sc-act="flow" id="hello">
+  <!-- 3 · HELLO -->
+  <section class="hello g-dark" id="hello">
     <div class="hello__inner" data-sc-in>
-      <span class="brush brush--logo hello__mark" role="img" aria-label="Pee Poo Bark"></span>
-      <p class="hello__ask">Want one for your dog?</p>
+      <h2>Want one for your dog?</h2>
       <!-- CHANGE-ME: replace CHANGE-ME@example.com with your real email address. -->
-      <p><a class="link" href="mailto:CHANGE-ME@example.com?subject=Save%20me%20a%20bandana">Save me a bandana</a></p>
+      <p><a class="button" href="mailto:CHANGE-ME@example.com?subject=Save%20me%20a%20bandana">Save me a bandana</a></p>
     </div>
     <footer class="hello__foot">
       <p>Pee Poo Bark. Live, laugh, love, for dogs.</p>
@@ -160,6 +69,5 @@
 
 <script src="scrollcraft/scrollcraft.js"></script>
 <script>ScrollCraft.mount(document.body);</script>
-<script src="site.js"></script>
 </body>
 </html>

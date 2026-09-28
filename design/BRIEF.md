@@ -1,5 +1,32 @@
 # Pee Poo Bark · build brief
 
+## Current version: simplified
+
+The owner saw the first version and said: "the website seems way too busy.
+its cute but... i want a simpler site."
+
+So the page is now three calm sections on one scroll:
+
+1. **The name.** The owner's brush lettering, big, on tennis-ball yellow, with
+   one line underneath.
+2. **About.** The bandana drawing beside a short paragraph about the bandanas
+   and the daily walk with two dogs.
+3. **Hello.** "Want one for your dog?" and one button: Save me a bandana.
+
+No pinned scrolling, no moving words, no crossed-out sign, no glossary. The
+scroll-craft engine is only used for the gentle fade-in as each section
+arrives, and that is switched off for visitors who ask for reduced motion.
+
+Colours: tennis ball `#D8F04A`, off-black `#1A1916`, off-white `#F2F0E8`.
+Type: the owner's lettering (`assets/logo.webp`) plus Archivo for everything
+else.
+
+---
+
+## First version (retired as too busy), kept for reference
+
+# Pee Poo Bark · build brief
+
 **Self-authored from the owner's first message.** There was no formal
 interview. Anything in *italics* below is an assumption to confirm or change.
 Everything else comes from what the owner actually said.
