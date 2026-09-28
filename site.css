@@ -1,0 +1,342 @@
+/* ============================================================================
+   Pee Poo Bark: the look.
+   scrollcraft/scrollcraft.css is the engine's floor. This file themes it and
+   styles the page's own markup. Colours are set once here, as tokens.
+   ========================================================================== */
+
+/* Archivo, self-hosted (SIL Open Font License, see assets/fonts/OFL.txt).
+   One variable file covers every weight and width used on the page. */
+@font-face {
+  font-family: "Archivo";
+  src: url(assets/fonts/archivo-latin-ext.woff2) format("woff2");
+  font-weight: 100 900; font-stretch: 62% 125%; font-style: normal; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url(assets/fonts/archivo-latin.woff2) format("woff2");
+  font-weight: 100 900; font-stretch: 62% 125%; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --ball:  #D8F04A;   /* tennis ball: the brand colour */
+  --ball-deep: #C3DB35;
+  --ink:   #1A1916;   /* off-black, never pure black */
+  --bone:  #F2F0E8;
+  --hall:  #E8DFD1;   /* the Live Laugh Love hallway. Used on purpose, once. */
+  --hall-ink: #2E2822;
+
+  --sc-canvas:     var(--ball);
+  --sc-surface:    var(--bone);
+  --sc-ink:        var(--ink);
+  --sc-ink-soft:   #3F4220;
+  --sc-accent:     var(--ball);
+  --sc-accent-ink: var(--ink);
+  --sc-font-display: "Archivo", system-ui, sans-serif;
+  --sc-font-text:    "Archivo", system-ui, sans-serif;
+}
+
+/* A focus ring in the brand colour would vanish on the yellow grounds. */
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.sc-grain { opacity: 0.035; }
+
+.vh {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; margin: -1px; padding: 0; border: 0;
+}
+
+/* ------------------------------------------------------------- grounds --
+   Each section paints its own ground and hard-cuts to the next: a poster,
+   not a gradient. Restate `color` wherever the ink token changes. */
+.g-ball { background: var(--ball); --sc-ink: var(--ink);   --sc-ink-soft: #3F4220; color: var(--sc-ink); }
+.g-hall { background: var(--hall); --sc-ink: var(--hall-ink); --sc-ink-soft: #62574A; color: var(--sc-ink); }
+.g-dark { background: var(--ink);  --sc-ink: var(--bone);  --sc-ink-soft: #B8B5A6; color: var(--sc-ink); }
+.g-bone { background: var(--bone); --sc-ink: var(--ink);   --sc-ink-soft: #55534A; color: var(--sc-ink); }
+
+/* ------------------------------------------------------ brush lettering --
+   The owner's own lettering, cut out of the original artwork. Drawn as a
+   mask so it takes whatever colour the text around it has. */
+.brush {
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain;    mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+.brush--pee  { aspect-ratio: 678 / 515;  -webkit-mask-image: url(assets/word-pee.webp);  mask-image: url(assets/word-pee.webp); }
+.brush--poo  { aspect-ratio: 666 / 463;  -webkit-mask-image: url(assets/word-poo.webp);  mask-image: url(assets/word-poo.webp); }
+.brush--bark { aspect-ratio: 806 / 412;  -webkit-mask-image: url(assets/word-bark.webp); mask-image: url(assets/word-bark.webp); }
+.brush--logo { aspect-ratio: 806 / 1263; -webkit-mask-image: url(assets/logo.webp);      mask-image: url(assets/logo.webp); }
+
+.link {
+  font-weight: 650;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.24em;
+  transition: text-decoration-thickness var(--sc-d-fast) var(--sc-ease-out);
+}
+@media (hover: hover) and (pointer: fine) { .link:hover { text-decoration-thickness: 4px; } }
+.link:active { opacity: 0.8; }
+
+/* ===================================================== 1 · THE NAME ==== */
+.hero__stage { display: grid; place-items: center; }
+
+/* Landscape: the three words cascade corner to corner, so the lockup fills
+   a wide screen instead of sitting in a thin column. */
+.hero__lockup {
+  position: relative;
+  width: min(92vw, 150svh);
+  aspect-ratio: 16 / 10;
+  --pee-x: 1%;  --pee-y: 1%;  --pee-w: 40%;
+  --poo-x: 32%; --poo-y: 31%; --poo-w: 38%;
+  --bark-x: 57%; --bark-y: 58%; --bark-w: 42%;
+}
+.hero__w { position: absolute; will-change: transform; }
+.hero__w--pee  { left: var(--pee-x);  top: var(--pee-y);  width: var(--pee-w); }
+.hero__w--poo  { left: var(--poo-x);  top: var(--poo-y);  width: var(--poo-w); }
+.hero__w--bark { left: var(--bark-x); top: var(--bark-y); width: var(--bark-w); }
+
+.hero__aside, .hero__tag { position: absolute; margin: 0; z-index: 2; }
+.hero__aside {
+  top: clamp(1.25rem, 6vh, 3.5rem); right: var(--sc-gutter);
+  text-align: right;
+  font-size: var(--sc-t-xl);
+  font-weight: 700;
+  font-stretch: 112%;
+  line-height: 1.08;
+  letter-spacing: var(--sc-track-snug);
+}
+.hero__tag {
+  bottom: clamp(1.25rem, 6vh, 3.5rem); left: var(--sc-gutter);
+  max-width: 26ch;
+  font-size: var(--sc-t-lg);
+  line-height: 1.3;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+/* Portrait: the original stacked lockup, exactly as drawn. */
+@media (orientation: portrait), (max-width: 700px) {
+  .hero__lockup {
+    width: auto;
+    height: min(64svh, 84vw * 1263 / 806);
+    aspect-ratio: 806 / 1263;
+    --pee-x: 2.85%;  --pee-y: 0%;      --pee-w: 84.12%;
+    --poo-x: 3.47%;  --poo-y: 36.42%;  --poo-w: 82.63%;
+    --bark-x: 0%;    --bark-y: 67.38%; --bark-w: 100%;
+  }
+  .hero__aside { font-size: var(--sc-t-lg); }
+  .hero__tag { font-size: var(--sc-t-base); max-width: 30ch; }
+}
+
+/* ================================================== 2 · THE HALLWAY ==== */
+.hall {
+  min-height: 80svh;
+  display: grid;
+  align-items: end;
+  justify-items: end;
+  padding: var(--sc-section) var(--sc-gutter) clamp(3rem, 14vh, 8rem);
+}
+.hall__line {
+  margin: 0;
+  font-size: var(--sc-t-xl);
+  font-weight: 400;
+  letter-spacing: var(--sc-track-snug);
+}
+
+/* =================================================== 3 · THE REWRITE ==== */
+.rewrite__stage { display: grid; place-items: center; }
+.rewrite__flip { position: absolute; inset: 0; background: var(--ball); opacity: 0; }
+
+.sign {
+  position: relative; z-index: 1;
+  list-style: none; margin: 0; padding: 0;
+  display: grid; justify-items: center;
+  gap: clamp(0.4em, 5vh, 0.9em);
+  font-size: clamp(2.4rem, 1rem + 9vw, 9rem);
+}
+/* The polite hallway sign: thin, wide, over-tracked. That is the joke. */
+.sign__row { position: relative; display: block; }
+.sign__word {
+  display: block;
+  font-weight: 200;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-right: -0.22em;
+  line-height: 1;
+}
+.sign__strike {
+  position: absolute; left: -8%; top: 30%;
+  width: 116%; height: 40%;
+  overflow: visible;
+  pointer-events: none;
+}
+.sign__strike path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: clamp(5px, 0.9vw, 14px);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.sign__dog {
+  position: absolute; left: 50%; top: 50%;
+  height: 1.9em; width: auto;
+  color: var(--ink);
+  translate: -50% -52%;
+  rotate: -7deg;
+  will-change: transform, opacity;
+}
+.sign__row:nth-child(2) .sign__dog { rotate: 4deg; }
+.sign__row:nth-child(3) .sign__dog { rotate: -4deg; height: 1.7em; }
+
+/* Only hide the dog's words once the engine is running. Without JavaScript
+   the rewrite shows finished. */
+.sc-ready .sign__strike { clip-path: inset(-50% 100% -50% -2%); }
+.sc-ready .sign__dog { opacity: 0; }
+
+.rewrite__after {
+  position: absolute; z-index: 2;
+  left: var(--sc-gutter); right: var(--sc-gutter);
+  bottom: clamp(1.5rem, 7vh, 4rem);
+  margin: 0;
+  text-align: center;
+  font-size: var(--sc-t-xl);
+  font-weight: 700;
+  font-stretch: 110%;
+  letter-spacing: var(--sc-track-snug);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* =================================================== 4 · GLOSSARY ==== */
+.gloss { padding-block: var(--sc-section); }
+.gloss__title {
+  margin: 0;
+  font-size: var(--sc-t-3xl);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: var(--sc-leading-none);
+  letter-spacing: var(--sc-track-tight);
+  max-width: 14ch;
+}
+.gloss__list { margin: var(--sc-9) 0 0; }
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--sc-4) var(--sc-8);
+}
+.entry + .entry { margin-top: clamp(4rem, 10vw, 9rem); }
+.entry dt, .entry dd { margin: 0; }
+.entry__word { width: min(100%, 34rem); color: var(--ball); }
+.entry--b { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+.entry--b dt { order: 2; justify-self: end; }
+.entry--c .entry__word { width: min(100%, 40rem); }
+.entry__meta {
+  margin: 0 0 var(--sc-2);
+  font-size: var(--sc-t-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--sc-ink-soft);
+}
+.entry__def {
+  margin: 0;
+  max-width: 26ch;
+  font-size: var(--sc-t-xl);
+  line-height: 1.26;
+  font-weight: 450;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+.entry--b dd { justify-self: start; }
+@media (max-width: 760px) {
+  .entry, .entry--b { grid-template-columns: 1fr; }
+  .entry--b dt { order: 0; justify-self: start; }
+  .entry__word { width: min(88%, 22rem); }
+  .entry--b .entry__word { margin-left: auto; }
+  .entry--b dt { justify-self: stretch; }
+}
+
+/* ==================================================== 5 · BANDANA ==== */
+.bandana { padding-block: var(--sc-section); }
+.bandana__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: var(--sc-8);
+}
+.bandana__copy > * + * { margin-top: var(--sc-4); }
+.bandana__copy > p:last-child { margin-top: var(--sc-6); }
+.bandana__title {
+  margin: 0;
+  font-size: var(--sc-t-3xl);
+  font-weight: 900;
+  font-stretch: 118%;
+  line-height: 0.96;
+  letter-spacing: var(--sc-track-tight);
+}
+.bandana__title span { display: block; }
+.bandana__lede { font-size: var(--sc-t-lg); line-height: 1.4; max-width: 34ch; margin-bottom: 0; }
+.bandana__note { color: var(--sc-ink-soft); max-width: 44ch; margin-bottom: 0; }
+.bandana__copy .link { font-size: var(--sc-t-lg); }
+.bandana__art { margin: 0; }
+.bandana__art svg { width: 100%; height: auto; filter: drop-shadow(0 14px 18px hsl(60 20% 20% / 0.18)); }
+.bandana__art figcaption {
+  margin-top: var(--sc-3);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .bandana__grid { grid-template-columns: 1fr; }
+  .bandana__art { order: -1; max-width: 26rem; justify-self: center; }
+}
+
+/* ===================================================== 6 · PERSON ==== */
+.person {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: var(--sc-7);
+  padding: var(--sc-section) var(--sc-gutter);
+}
+.person__label {
+  margin: 0;
+  font-size: var(--sc-t-sm);
+  font-weight: 700;
+  letter-spacing: var(--sc-track-wide);
+  text-transform: uppercase;
+}
+.person__note {
+  margin: 0;
+  max-width: 24ch;
+  font-size: clamp(1.7rem, 0.9rem + 3vw, 4rem);
+  font-weight: 600;
+  font-stretch: 104%;
+  line-height: 1.1;
+  letter-spacing: var(--sc-track-snug);
+  text-wrap: pretty;
+}
+
+/* ====================================================== 7 · HELLO ==== */
+.hello {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: var(--sc-section) var(--sc-gutter) var(--sc-6);
+}
+.hello__inner { align-self: center; }
+.hello__inner > * + * { margin-top: var(--sc-3); }
+.hello__mark { height: clamp(6rem, 18vh, 9rem); width: auto; color: var(--ball); margin-bottom: var(--sc-6); }
+.hello__ask { margin-bottom: 0; font-size: var(--sc-t-base); color: var(--sc-ink-soft); }
+.hello__inner p:last-child { margin-top: var(--sc-2); font-size: var(--sc-t-base); }
+.hello__foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sc-2) var(--sc-6);
+  padding-top: var(--sc-5);
+  border-top: 1px solid color-mix(in oklab, currentColor 20%, transparent);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+}
+.hello__foot p { margin: 0; }
