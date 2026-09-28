@@ -20,7 +20,7 @@
 }
 
 :root {
-  --sage:  #DCE7D3;   /* soft sage green */
+  --white: #FFFFFF;
   --sage-deep: #4F6B4C;
   --cream: #FBF8F3;   /* warm off-white */
   --blush: #F6DEDA;   /* pale blush pink */
@@ -38,7 +38,7 @@
 :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 
 /* Each section paints its own background. */
-.g-sage  { background: var(--sage);  --sc-ink-soft: #4A5446; color: var(--ink); }
+.g-white { background: var(--white); --sc-ink-soft: #5F5C55; color: var(--ink); }
 .g-cream { background: var(--cream); --sc-ink-soft: #5F5C55; color: var(--ink); }
 .g-blush { background: var(--blush); --sc-ink-soft: #5E4F4C; color: var(--ink); }
 
@@ -94,7 +94,7 @@ h2 {
   gap: var(--sc-8);
 }
 .about__art { margin: 0; }
-.about__art svg { width: 100%; height: auto; }
+.about__art svg { width: 100%; height: auto; filter: drop-shadow(0 8px 14px hsl(30 20% 30% / 0.10)); }
 .about__copy > * + * { margin-top: var(--sc-4); }
 .about__copy h2 + p { margin-top: var(--sc-5); }
 .about__copy p { max-width: 38ch; color: var(--sc-ink-soft); }
