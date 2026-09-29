@@ -24,9 +24,38 @@ search `index.html` for `mailto:`.
 1. **The bandana drawing.** Once you have photos of your dogs wearing the
    bandanas, those should replace the drawing in the middle section of `index.html`.
 
-## Putting it online for free (GitHub Pages)
+## Putting it online (GitHub Pages + peepoobark.ca)
 
-1. On GitHub, open this repository and go to **Settings → Pages**.
-2. Under **Branch**, pick `main` (or the branch this site is on) and `/ (root)`, then **Save**.
-3. After a minute or two your site is live at
-   `https://<your-github-username>.github.io/pee-poo-bark/`.
+The site is hosted free by GitHub Pages. The `CNAME` file tells GitHub the
+site's address is `peepoobark.ca`.
+
+**1. Turn on GitHub Pages.** In this repository on GitHub, go to
+**Settings → Pages**. Under "Build and deployment", set **Source** to
+"Deploy from a branch", pick the `main` branch and the `/ (root)` folder, then
+**Save**.
+
+**2. Point peepoobark.ca at GitHub.** Log in where you bought the domain and
+open its **DNS settings**. Remove any existing `A` records for `@` (the bare
+domain), then add:
+
+| Type | Name / Host | Value |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | gharriso83.github.io |
+
+If there is an existing "domain forwarding" or "parked page" setting on
+peepoobark.ca, turn it off, or it will fight with these records.
+
+**3. Tell GitHub the domain.** Back in **Settings → Pages**, type
+`peepoobark.ca` in **Custom domain** and **Save**. DNS changes can take from a
+few minutes to a day. When GitHub says the DNS check passed, tick
+**Enforce HTTPS** (it may take up to an hour to become clickable).
+
+**4. peepoobark.com.** Leave its forwarding to peepoobark.ca as it is.
+
+**Optional but recommended:** in your GitHub account (profile picture →
+**Settings → Pages**), add and verify `peepoobark.ca`. This stops anyone else
+on GitHub from claiming your domain.
